@@ -7,6 +7,7 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow: hidden; /* Evitar scroll en la página principal */
 }
 
 .color-wall {
@@ -16,6 +17,8 @@ body {
     width: 90%;
     max-width: 800px;
     margin-bottom: 20px;
+    overflow-y: auto; /* Habilitar scroll vertical */
+    max-height: 80vh; /* Ajustar altura máxima para dispositivos móviles */
 }
 
 .color-panel {
