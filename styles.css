@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: 	#4E5258;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.color-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    width: 90%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.color-panel {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.color-panel[data-color="Amarillo"],
+.color-panel[data-color="Rosa"],
+.color-panel[data-color="Cian"],
+.color-panel[data-color="Lima"],
+.color-panel[data-color="Turquesa"],
+.color-panel[data-color="Lavanda"],
+.color-panel[data-color="Beige"],
+.color-panel[data-color="Durazno"],
+.color-panel[data-color="Menta"],
+.color-panel[data-color="Oro"],
+.color-panel[data-color="Plata"],
+.color-panel[data-color="Violeta"],
+.color-panel[data-color="Blanco"] {
+    color: black;
+}
+
+.color-panel.active {
+    transform: scale(1.1);
+}
+
+.color-panel span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.color-panel.active span {
+    display: block;
+}
+
+#voice-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#voice-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
