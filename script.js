@@ -31,7 +31,13 @@ const colors = [
     { name: 'Índigo', hex: '#4B0082' },
 ];
 
+const animations = [
+    'slide-in-fwd-center', 'blur-out-expand'
+];
+
 const colorWall = document.getElementById('color-wall');
+const overlay = document.getElementById('overlay');
+const overlayText = document.getElementById('overlay-text');
 const voiceIcon = document.getElementById('voice-icon');
 let voices = [];
 let selectedVoice = null;
@@ -46,11 +52,25 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
 }
 
+function getRandomAnimation(usedAnimations) {
+    let animation;
+    do {
+        animation = animations[Math.floor(Math.random() * animations.length)];
+    } while (usedAnimations.includes(animation));
+    usedAnimations.push(animation);
+    if (usedAnimations.length === animations.length) {
+        usedAnimations.length = 0; // Reset the used animations
+    }
+    return animation;
+}
+
+const usedAnimations = [];
+
 colors.forEach(color => {
     const panel = document.createElement('div');
     panel.className = 'color-panel';
-    panel.setAttribute('data-color', color.name);
     panel.style.backgroundColor = color.hex;
+    panel.setAttribute('data-color', color.name);
 
     const colorName = document.createElement('span');
     colorName.textContent = color.name;
@@ -59,12 +79,24 @@ colors.forEach(color => {
     panel.addEventListener('click', () => {
         document.querySelectorAll('.color-panel').forEach(p => p.classList.remove('active'));
         panel.classList.add('active');
+
         const msg = new SpeechSynthesisUtterance(color.name);
         if (selectedVoice) {
             msg.voice = selectedVoice;
         }
         msg.lang = 'es-ES';
         window.speechSynthesis.speak(msg);
+
+        overlay.style.backgroundColor = color.hex;
+        overlayText.textContent = color.name;
+        overlay.style.display = 'flex';
+
+        const animation = getRandomAnimation(usedAnimations);
+        overlay.style.animation = `${animation} 5s linear both`;
+
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 5000);
     });
 
     colorWall.appendChild(panel);
