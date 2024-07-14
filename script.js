@@ -5,7 +5,7 @@ const colors = [
     { name: 'Amarillo', hex: '#FFFF00' },
     { name: 'Morado', hex: '#800080' },
     { name: 'Naranja', hex: '#FFA500' },
-    { name: 'Rosa', hex: '#FFC0CB' },
+    { name: 'Rosado', hex: '#FFC0CB' },
     { name: 'Marrón', hex: '#A52A2A' },
     { name: 'Negro', hex: '#000000' },
     { name: 'Blanco', hex: '#FFFFFF' },
@@ -92,7 +92,7 @@ colors.forEach(color => {
         overlay.style.display = 'flex';
 
         const animation = getRandomAnimation(usedAnimations);
-        overlay.style.animation = `${animation} 5s linear both`;
+        overlay.style.animation = `${animation} 2s linear both`;
 
         setTimeout(() => {
             overlay.style.display = 'none';
