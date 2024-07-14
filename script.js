@@ -4,7 +4,7 @@ const colors = [
     { name: 'Verde', hex: '#00FF00' },
     { name: 'Amarillo', hex: '#FFFF00' },
     { name: 'Morado', hex: '#800080' },
-    { name: 'Naranja', hex: '#FFA500' },
+    { name: 'Anaranjado', hex: '#ff8000' },
     { name: 'Rosado', hex: '#FFC0CB' },
     { name: 'Marrón', hex: '#A52A2A' },
     { name: 'Negro', hex: '#000000' },
