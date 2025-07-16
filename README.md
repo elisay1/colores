@@ -143,7 +143,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 👨‍💻 Autor
 
-**Elisay Jiménez**
+**ELISAY CODE**
 
 - 🌐 Website: [elisaycode.com](https://elisaycode.com)
 - 📧 Email: elisaycode@gmail.com
